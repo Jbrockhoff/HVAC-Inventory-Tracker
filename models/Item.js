@@ -15,15 +15,20 @@ Item.init(
           type: DataTypes.STRING,
           allowNull: false,
         },
-        size:
-        {
-          type: DataTypes.DECIMAL,
-          allowNull: false,
-        },
         quantity:
         {
           type: DataTypes.INTERGER,
-          allowNull: true,
+          allowNull: false,
+        },
+        cost:
+        {
+          type: DataTypes.DECIMAL,
+          allowNull: false
+        },
+        retail:
+        {
+           type: DataTypes.DECIMAL,
+           allowNull: false 
         },
     },
     {
