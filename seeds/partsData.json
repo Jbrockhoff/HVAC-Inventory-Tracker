@@ -1,0 +1,98 @@
+[
+  {
+    "name": "1/2hp Blower Motors",
+    "cost": "85.00",
+    "retail": "450.00",
+    "quantity": "2"
+  },
+  {
+    "name": "1/4 Condenser Motors",
+    "cost": "95.00",
+    "retail":"450.00",
+    "quantity": "2"
+  },
+  {
+    "name": "Dual Capacitors",
+    "cost": "20.00",
+    "retail":"225.00",
+    "quantity": "2"
+  },
+  {
+    "name": "1/2hp Condenser Motors",
+    "cost": "95.00",
+    "retail":"450.00",
+    "quantity": "2"
+  },
+  {
+    "name": "Run Capacitors",
+    "cost": "15.00",
+    "retail":"125.00",
+    "quantity": "2"
+  },
+  {
+    "name": "Transformers",
+    "cost": "35.00",
+    "retail":"185.00",
+    "quantity": "2"
+  },
+  {
+    "name": "Control Board",
+    "cost": "150.00",
+    "retail":"525.00",
+    "quantity": "2"
+  },
+  {
+    "name": "Contactors",
+    "cost": "40.00",
+    "retail":"225.00",
+    "quantity": "2"
+  }, 
+  {
+    "name": "Thermostats",
+    "cost": "65.00",
+    "retail":"200.00",
+    "quantity": "2"
+  },
+   {
+    "name": "Gas Valves",
+    "cost": "85.00",
+    "retail":"425.00",
+    "quantity": "2"
+  }, 
+  {
+    "name": "Sheet Metal Screws",
+    "cost": "25.00",
+    "retail":"75.00",
+    "quantity": "2"
+  },
+  {
+    "name": "2 inch PVC",
+    "cost": "35.00",
+    "retail":"155.00",
+    "quantity": "2"
+  }, 
+  {
+    "name": "1/2 Iron Pipe",
+    "cost": "2.50",
+    "retail":"25.00",
+    "quantity": "2"
+  }, 
+  {
+    "name": "Refrigerant per pound",
+    "cost": "25.00",
+    "retail":"275.00",
+    "quantity": "2"
+  }, 
+  {
+    "name": "4 inchFlue Pipe",
+    "cost": "12.00",
+    "retail":"48.00",
+    "quantity": "2"
+  },
+  {
+    "name": "Cable Ties pack of 500",
+    "cost": "10.00",
+    "retail":"35.00",
+    "quantity": "2"
+  }
+]
