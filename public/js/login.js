@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/item');
     } else {
       alert('Failed to log in');
     }
@@ -34,7 +34,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/item');
     } else {
       alert(response.statusText);
     }
@@ -44,3 +44,8 @@ const signupFormHandler = async (event) => {
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
+
+  document
+  .querySelector('.signup-form')
+  .addEventListener('submit', signupFormHandler);
+
