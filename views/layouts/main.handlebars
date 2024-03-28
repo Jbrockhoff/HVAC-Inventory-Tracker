@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Your custom CSS -->
   <link rel="stylesheet" href="/css/jass.css">
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
+  <header class="d-flex justify-content-between align-items-center p-2 bg-dark text-light">
+    <h1 class="m-0">
       User Registry
     </h1>
     {{#if logged_in}}
     <nav>
-      <button class="btn" id="logout">logout</button>
+      <button class="btn btn-light" id="logout">Logout</button>
     </nav>
     {{/if}}
   </header>
-  <main class="container container-fluid mt-5">
+  <main class="container mt-5">
     {{{ body }}}
   </main>
-  <footer>
-      
+  <footer class="bg-dark text-light text-center py-3">
+    <!-- Footer content goes here -->
   </footer>
 
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-Ltrj3KmKF8kkSLOJ2HVP56v/j+2EFA6+O8iX1F0GLYsGmE9l/6XcaNN2Vn2HeHQ2" crossorigin="anonymous"></script>
 </body>
 
 </html>
