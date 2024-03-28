@@ -17,7 +17,7 @@ Item.init(
         },
         quantity:
         {
-          type: DataTypes.INTERGER,
+          type: DataTypes.INTEGER,
           allowNull: false,
         },
         cost:
