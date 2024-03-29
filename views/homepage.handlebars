@@ -1,10 +1,14 @@
-{{#each users as |user| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{{get_emoji}}} {{user.name}}</h2>
-  </div>
-  <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
-  </div>
-</div>
-{{/each}}
+<h2>Welcome, {{user.name}}!</h2>
+
+{{#if inventory.length}}
+  <h3>Your Inventory:</h3>
+  {{#each inventory as |item| }}
+    <div class="row align-center mb-5">
+      <div class="col-md-6">
+        <h4>{{item.name}}</h4>
+      </div>
+    </div>
+  {{/each}}
+{{else}}
+  <p>No items in your inventory yet.</p>
+{{/if}} 
