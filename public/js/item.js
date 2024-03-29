@@ -1,10 +1,12 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const title = document.querySelector('#blog-title').value.trim();
-    const content = document.querySelector('#blog-content').value.trim();
-  
-    if (title  && content) {
+    const name = document.querySelector('#item-name').value.trim();
+    const quantity =document.querySelector('#item-quantity').value.trim();
+    const cost = document.querySelector('#item-cost').value.trim();
+    const retail = document.querySelector('#item-retail').value.trim();
+    
+    if (name  && quantity && cost && retail) {
       const response = await fetch(`/api/item`, {
         method: 'POST',
         body: JSON.stringify({ title, content }),
@@ -25,14 +27,14 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/blogs/${id}`, {
+      const response = await fetch(`/api/item/${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
         document.location.replace('/item');
       } else {
-        alert('Failed to delete blog');
+        alert('Failed to delete item');
       }
     }
   };
@@ -41,9 +43,9 @@ const newFormHandler = async (event) => {
   
   
   document
-    .querySelector('.new-blog-form')
+    .querySelector('.new-item-form')
     .addEventListener('submit', newFormHandler);
   
   document
-    .querySelector('.blog-list')
+    .querySelector('.item-list')
     .addEventListener('click', delButtonHandler);
