@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Item } = require('../models');
+const { User, Item, Inventory } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
       order: [['name', 'ASC']],
       include: [
         {
-          model: Item
+          model: Inventory
         }
       ]
     });
@@ -35,6 +35,6 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/item',withAuth, async (req,res) =>{
-  res.render()
+  res.render('homepage');
 })
 module.exports = router;
