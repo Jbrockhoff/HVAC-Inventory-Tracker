@@ -1,0 +1,13 @@
+
+{{#if inventory}}
+  <h3>Your Inventory:</h3>
+  {{#each inventory.items as |item| }}
+    <div class="row align-center mb-5">
+      <div class="col-md-6">
+        <h4>{{item.name}}</h4>
+      </div>
+    </div>
+  {{/each}}
+{{else}}
+  <p>No items in your inventory yet.</p>
+{{/if}} 
