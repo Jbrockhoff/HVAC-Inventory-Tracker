@@ -30,6 +30,12 @@ Item.init(
            type: DataTypes.DECIMAL,
            allowNull: false 
         },
+        // image: 
+        // {
+        //   type: DataTypes.STRING,
+        //   allowNull: true,
+        // }
+        
     },
     {
         sequelize,
