@@ -30,11 +30,18 @@ Item.init(
            type: DataTypes.DECIMAL,
            allowNull: false 
         },
+// <<<<<<< editimage
         // image: 
         // {
         //   type: DataTypes.STRING,
         //   allowNull: true,
-        // }
+//         // }
+// =======
+//         image: {
+//           type: DataTypes.STRING,
+//           allowNull: true,
+//         }
+// >>>>>>> main
         
     },
     {

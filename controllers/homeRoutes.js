@@ -10,10 +10,9 @@ router.get('/', withAuth, async (req, res) => {
       include: [
         {
           model: Inventory,
-         
         }
       ],
-      
+    
     });
 
     const user = userData.get({plain:true})
@@ -28,7 +27,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
     return;
@@ -37,7 +36,27 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/inventory', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+} 
+
+try {
+  const itemData = await Item.findAll()
+  const items = itemData.map(item => item.get())
+  console.log(items)
+  res.render('inventory', {items});
+} catch (err) {
+  res.json(error)
+}
+});
+
 router.get('/item',withAuth, async (req,res) =>{
   res.render('homepage');
+});
+
+router.get('/invoice', withAuth, async (req,res) => {
+  res.render('invoice');
 })
 module.exports = router;
