@@ -16,7 +16,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/invoice');
       } else {
-        alert('Failed to create blog');
+        alert('Failed to create invoice');
       }
     }
   };
