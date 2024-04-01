@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Item, Inventory } = require('../models');
+const { User, Item, Inventory, Invoice } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -14,6 +14,7 @@ router.get('/', withAuth, async (req, res) => {
       ],
     
     });
+    
 
     const user = userData.get({plain:true})
     
@@ -26,6 +27,35 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id,{
+      attributes: { exclude: ['password'] },
+      order: [['name', 'ASC']],
+      include: [
+        {
+          model: Invoice,
+        }
+      ],
+    
+    });
+    
+
+    const user = userData.get({plain:true})
+    
+    res.render('invoice', {
+      user,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+
 
 router.get('/login', async (req, res) => {
   if (req.session.logged_in) {
@@ -57,6 +87,6 @@ router.get('/item',withAuth, async (req,res) =>{
 });
 
 router.get('/invoice', withAuth, async (req,res) => {
-  res.render('invoice');
+  res.render('homepage');
 })
 module.exports = router;
