@@ -14,19 +14,18 @@
 <body>
   <header class="d-flex justify-content-between align-items-center p-2 bg-dark text-light">
     <h1 class="m-0">
-      User Login
+      HVAC Inventory
     </h1>
     {{#if logged_in}}
     <nav>
+      <button class="btn btn-light" id="homepage">Dashboard</button>
       <button class="btn btn-light" id="logout">Logout</button>
     </nav>
     {{/if}}
   </header>
-  <main class="container mt-5">
-    {{{ body }}}
-  </main>
+
   <footer class="bg-dark text-light text-center py-3">
-    <!-- Footer content goes here -->
+    <h4>HVAC Inventory 2024</h4>
   </footer>
 
   {{#if logged_in}}

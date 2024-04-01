@@ -1,1 +1,8 @@
 <h2>Welcome, {{user.name}}!</h2>
+
+    {{#if logged_in}}
+    <body>
+    <button class="btn btn-light" id="inventory">Your Inventory:</button>
+    <button class="btn btn-light" id="invoice">Invoices:</button>
+    </body>
+    {{/if}}

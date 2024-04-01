@@ -53,7 +53,7 @@ try {
 });
 
 router.get('/item',withAuth, async (req,res) =>{
-  res.render('homepage');
+  res.render('inventory');
 });
 
 router.get('/invoice', withAuth, async (req,res) => {
