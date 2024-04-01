@@ -18,7 +18,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/item');
       } else {
-        alert('Failed to create blog');
+        alert('Failed to create item');
       }
     }
   };

@@ -1,6 +1,7 @@
 const User = require('./User');
 const Item = require('./Item');
 const Inventory = require("./Inventory");
+const Invoice = require('./Invoice')
 
 User.hasOne(Inventory,{
     foreignKey: 'user_id'
@@ -21,4 +22,8 @@ Item.belongsToMany(Inventory, {
     foreignKey: 'inventory_id'
 });
 
-module.exports = { User, Item, Inventory };
+User.hasMany(Invoice,{
+    foreignKey: 'user_id'
+});
+
+module.exports = { User, Item, Inventory,Invoice };
