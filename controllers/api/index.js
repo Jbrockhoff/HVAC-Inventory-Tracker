@@ -7,6 +7,6 @@ const invoiceRoutes = require('./invoiceRoutes');
 router.use('/users', userRoutes);
 router.use('/item', itemRoutes);
 router.use('/inventory',inventoryRoutes);
-router.use('invoice',invoiceRoutes);
+router.use('/invoice',invoiceRoutes);
 
 module.exports = router;

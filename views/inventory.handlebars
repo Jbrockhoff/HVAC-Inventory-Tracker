@@ -1,6 +1,13 @@
-
 {{#if items}}
   <h3>Your Inventory:</h3>
+  
+ {{#if logged_in}}
+    <nav>
+      <button class="btn btn-light" id="dashboard">Dashboard</button>
+      <button class="btn btn-light" id="logout">Logout</button>
+    </nav>
+    {{/if}}
+
   {{#each items as |item| }}
     <div class="row align-center mb-5">
       <div class="col-md-6">

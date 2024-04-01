@@ -1,1 +1,25 @@
 <h2>Welcome, {{user.name}}!</h2>
+
+<p>Nice to see you back!</p>
+
+
+{{!-- To select inventory options --}}
+  <div class="card" style="width: 18rem;">
+  <img src="../public/assets/tools.jpg" class="card-img-top" alt="tools">
+  <div class="card-body">
+    <a href="#" class="btn btn-primary" id="inventory">
+      <h5 class="card-title">My Inventory</h5> 
+    </a>
+    <p class="card-text">View and update your personal inventory</p>
+  </div>
+</div>
+
+  <div class="card" style="width: 18rem;">
+  <img src="../public/assets/invoice.jpg" class="card-img-top" alt="invoice">
+  <div class="card-body">
+    <a href="#" class="btn btn-primary" id="invoice"> <!-- Wrap the heading in the <a> tag -->
+      <h5 class="card-title">My Invoices</h5> <!-- Heading inside the <a> tag -->
+    </a>
+    <p class="card-text">Create a new invoice or view existing invoices</p>
+  </div>
+</div>
