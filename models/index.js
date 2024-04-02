@@ -26,4 +26,4 @@ User.hasMany(Invoice,{
     foreignKey: 'user_id'
 });
 
-module.exports = { User, Item, Inventory,Invoice };
+module.exports = { User, Item, Inventory, Invoice };
