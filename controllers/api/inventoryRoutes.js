@@ -2,25 +2,10 @@ const router = require('express').Router();
 const { Inventory, Item } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Route to get all inventory items
-router.get('/inventory', withAuth, async (req, res) => {
-    try {
-        const inventoryData = await Inventory.findAll({
-            where: { user_id: req.session.user_id },
-            include: [{ model: Item }]
-        });
 
-        const items = inventoryData.map((inventory) => inventory.Items);
-        const logged_in = true; // Set to true if the user is logged in
-
-        res.render('inventory', { items, logged_in });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 // Route to create new inventory
-router.post('/inventory', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newInventory = await Inventory.create({
             ...req.body,
@@ -34,7 +19,7 @@ router.post('/inventory', withAuth, async (req, res) => {
 });
 
 // Route to delete inventory by ID
-router.delete('/inventory/:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const inventoryData = await Inventory.destroy({
             where: {
