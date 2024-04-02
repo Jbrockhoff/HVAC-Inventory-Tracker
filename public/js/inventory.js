@@ -13,3 +13,4 @@ document.getElementById("all-items-container").addEventListener("click",async fu
         }
     }
 })
+

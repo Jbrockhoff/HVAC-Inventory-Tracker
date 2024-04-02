@@ -35,6 +35,7 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  justify-content: center;
 }
 
 /* Grouping content
@@ -359,7 +360,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
   color: #1a1a1a;
+  text-align: center;
 }
+
 
 h1,
 h2,
@@ -369,14 +372,17 @@ h5,
 h6 {
   margin: 0 0 0.5rem;
   line-height: 1.25;
+  text-align: center;
 }
 
 h1 {
   font-size: 2.25rem;
+  justify-content: center;
 }
 
 h2 {
   font-size: 2rem;
+
 }
 
 h3 {
@@ -411,6 +417,10 @@ dl {
 label {
   display: inline-block;
 }
+
+.login {
+  text-align: left;
+} 
 
 input,
 select,
@@ -1082,7 +1092,11 @@ a:hover {
 
 .card {
   border: 1px solid #1a1a1a;
-  margin-bottom: 1rem;
+  margin-right: 10px;
+}
+
+.card .card-body {
+  padding: 0.375rem;
 }
 
 .card .card-header {
@@ -1091,8 +1105,9 @@ a:hover {
   color: #d9e9e8;
 }
 
-.card .card-body {
-  padding: 0.375rem;
+.card-container {
+  display: flex;
+  justify-content: center;
 }
 
 .card .card-footer {
@@ -1116,6 +1131,7 @@ form .form-group {
   display: block;
   width: 100%;
   margin: 0.625rem 0;
+    text-align: left;
 }
 
 form .form-input,
