@@ -1,5 +1,7 @@
-{{#if userItems}}
+{{!-- {{#if userItems}}
+<hr/>
   <h2>Your Inventory:</h2>
+  <hr/>
 
   {{#each userItems as |item| }}
     <div class="row align-center mb-5">
@@ -14,8 +16,11 @@
 {{else}}
   <p>No items in your inventory yet.</p>
 {{/if}}
+<hr/>
 
-<hr />
+
+<h2>Choose an Inventory Item to Add:</h2>
+<hr/>
 <div id="all-items-container">
 {{#each allItems as |item| }}
  <div class="row align-center mb-5">
@@ -29,4 +34,47 @@
     </div>
     {{/each}}
     </div>
-    <script src="/js/inventory.js"></script>
+    <script src="/js/inventory.js"></script> --}}
+
+<div class="text-center">
+  {{#if userItems}}
+  <hr/>
+  <h2>Your Inventory:</h2>
+  <hr/>
+  <div class="row justify-content-center">
+    {{#each userItems as |item| }}
+    <div class="col-md-4 mb-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text">Quantity: {{item.quantity}}</p>
+          <p class="card-text">Cost: ${{item.cost}}</p>
+          <p class="card-text">Retail: ${{item.retail}}</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <p>No items in your inventory yet.</p>
+  {{/if}}
+
+  <hr/>
+  <h2>Choose an Inventory Item to Add:</h2>
+  <hr/>
+  <div id="all-items-container" class="row justify-content-center">
+    {{#each allItems as |item| }}
+    <div class="col-md-4 mb-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text">Quantity: {{item.quantity}}</p>
+          <p class="card-text">Cost: ${{item.cost}}</p>
+          <p class="card-text">Retail: ${{item.retail}}</p>
+          <button class="btn btn-primary" data-inventory="{{@root.inventory_id}}" data-item="{{item.id}}">Add to Inventory</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
