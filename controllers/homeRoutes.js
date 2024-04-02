@@ -85,6 +85,23 @@ router.get("/inventory", withAuth, async (req, res) => {
   }
 });
 
+// Invoice Route
+router.get('/invoice', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const invoiceData = await Invoice.findAll();
+    const invoices = invoiceData.map(item => item.get());
+    console.log(invoices);
+      res.render('invoice', { invoices });
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
+
 // Other Routes
 // Add other routes as needed
 
