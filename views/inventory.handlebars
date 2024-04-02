@@ -12,6 +12,7 @@
           <p class="card-text">Quantity: {{item.quantity}}</p>
           <p class="card-text">Cost: ${{item.cost}}</p>
           <p class="card-text">Retail: ${{item.retail}}</p>
+          <button class="btn btn-danger delete-button" data-inventory="{{@root.inventory_id}}" data-item="{{item.id}}">Delete from Inventory</button>
         </div>
       </div>
     </div>
