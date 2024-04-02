@@ -3,7 +3,7 @@ const newFormHandler = async (event) => {
   
     const name = document.querySelector('#invoice-name').value.trim();
     
-    
+    //To create new invoice
     if (name) {
       const response = await fetch(`/api/invoice`, {
         method: 'POST',
@@ -21,6 +21,7 @@ const newFormHandler = async (event) => {
     }
   };
   
+  //To delete existing invoice by ID
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('invoice-id')) {
       const id = event.target.getAttribute('invoice-id');

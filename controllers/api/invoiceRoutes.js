@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Invoice } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//router.get for all invoices from user
+//View all invoices from user
 router.get('/', withAuth, async (req, res) => {
   try {
       const invoicesData = await Invoice.findAll({
@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-//POST route to create new invoice
+//Create new invoice
 router.post('/', withAuth, async (req, res) => {
     try {
       const newInvoice = await Invoice.create({

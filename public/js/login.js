@@ -4,6 +4,7 @@ const loginFormHandler = async (event) => {
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
+  //To log in as existing user and send them to their dashboard
   if (email && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
@@ -25,7 +26,8 @@ const signupFormHandler = async (event) => {
   const name = document.querySelector('#name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-
+  
+//To sign up as a new user
   if (name && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',

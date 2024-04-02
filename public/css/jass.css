@@ -1132,12 +1132,16 @@ form .form-group {
   width: 100%;
   margin: 0.625rem 0;
     text-align: left;
+    font-size: 5px;
 }
 
-form .form-input,
+form .form-input {
+  display: block;
+}
 form .form-textarea {
   display: block;
 }
+
 
 form select {
   -webkit-appearance: none;

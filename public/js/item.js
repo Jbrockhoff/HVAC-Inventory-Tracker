@@ -5,7 +5,8 @@ const newFormHandler = async (event) => {
     const quantity =document.querySelector('#item-quantity').value.trim();
     const cost = document.querySelector('#item-cost').value.trim();
     const retail = document.querySelector('#item-retail').value.trim();
-    
+
+    //To create new item
     if (name  && quantity && cost && retail) {
       const response = await fetch(`/api/item`, {
         method: 'POST',
@@ -23,6 +24,7 @@ const newFormHandler = async (event) => {
     }
   };
   
+  //To delete exiting item by ID
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
