@@ -15,4 +15,31 @@ document.getElementById("all-items-container").addEventListener("click",async fu
         };
     };
 });
+document.getElementById("all-items-container").addEventListener("click", async function(e) {
+    if (e.target.matches(".delete-button")) {
+        try {
+            await fetch(`/api/inventory/delete/${e.target.dataset.inventory}`, {
+                method: "DELETE"
+            });
+            document.location.reload();
+        } catch (error) {
+            alert(error);
+        }
+    }
 
+    if (e.target.matches(".update-button")) {
+        const updatedItem = prompt("Enter the updated item:");
+        if (updatedItem) {
+            try {
+                await fetch(`/api/inventory/update/${e.target.dataset.inventory}`, {
+                    method: "PUT",
+                    body: JSON.stringify({ updatedItem }),
+                    headers: { "Content-Type": "application/json" }
+                });
+                document.location.reload();
+            } catch (error) {
+                alert(error);
+            }
+        }
+    }
+});
