@@ -73,12 +73,11 @@ router.get("/inventory", withAuth, async (req, res) => {
     const items = tmpInventoryData.map((inventory) =>
       inventory.items.map((itm) => itm.get())
     );
-    const logged_in = req.session.logged_in;
     tmpAllItemData.forEach((data) => {
       data.inventories = data.inventories.map((item) => item.get())
     });
     
-    res.render("inventory", { userItems: items[0], logged_in, allItems: tmpAllItemData, inventory_id: tmpInventoryData[0].id });
+    res.render("inventory", { userItems: items[0], allItems: tmpAllItemData, inventory_id: tmpInventoryData?.[0]?.id });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

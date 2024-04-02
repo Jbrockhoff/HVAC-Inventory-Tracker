@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/inventory');
+      document.location.replace('/homepage');
     } else {
       alert('Failed to log in');
     }
@@ -34,7 +34,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/item');
+      document.location.replace('/homepage');
     } else {
       alert(response.statusText);
     }
