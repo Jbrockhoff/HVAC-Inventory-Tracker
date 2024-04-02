@@ -1,13 +1,34 @@
+{{#if logged_in}}
+    <nav>
+      <button class="btn btn-light" id="dashboard">Dashboard</button>
+      <button class="btn btn-light" id="logout">Logout</button>
+    </nav>
+    {{/if}}
 
-{{#if items}}
-  <h3>Your Inventory:</h3>
-  {{#each items as |item| }}
+{{#if userItems}}
+  <h2>Your Inventory:</h2>
+
+  {{#each userItems as |item| }}
     <div class="row align-center mb-5">
       <div class="col-md-6">
-        <h4>{{item.name}}</h4>
+        <h5>{{item.name}}</h5>
+        <p>Quantity: {{item.quantity}}</p>
+        <p>Cost: ${{item.cost}}</p>
+        <p>Retail: ${{item.retail}}</p> 
       </div>
     </div>
   {{/each}}
 {{else}}
   <p>No items in your inventory yet.</p>
-{{/if}} 
+{{/if}}
+
+{{#each allItems as |item| }}
+ <div class="row align-center mb-5">
+      <div class="col-md-6">
+        <h5>{{item.name}}</h5>
+        <p>Quantity: {{item.quantity}}</p>
+        <p>Cost: ${{item.cost}}</p>
+        <p>Retail: ${{item.retail}}</p> 
+      </div>
+    </div>
+    {{/each}}

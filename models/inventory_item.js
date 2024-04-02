@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 
-class Invoice extends Model {}
+class Inventory_item extends Model {}
 
-Invoice.init(
+Inventory_item.init(
     {
         id: {
           type: DataTypes.INTEGER,
@@ -12,11 +12,19 @@ Invoice.init(
           primaryKey: true,
           autoIncrement: true,
         },
-        user_id:{
+        item_id:{
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: "user",
+                model: "item",
+                key: "id"
+            }
+        }, 
+        inventory_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: "inventory",
                 key: "id"
             }
         }
@@ -26,8 +34,10 @@ Invoice.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'invoice',
+        modelName: 'inventory_items',
       }
     );
 
-    module.exports = Invoice;
+
+
+module.exports = Inventory_item;

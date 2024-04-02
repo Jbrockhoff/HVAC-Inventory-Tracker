@@ -10,22 +10,27 @@
   <!-- Your custom CSS -->
   <link rel="stylesheet" href="/css/jass.css">
 </head>
-
+ 
 <body>
   <header class="d-flex justify-content-between align-items-center p-2 bg-dark text-light">
-    <h1 class="m-0">
-      HVAC Inventory
-    </h1>
-    {{#if logged_in}}
+     {{#if logged_in}}
     <nav>
-      <button class="btn btn-light" id="homepage">Dashboard</button>
+      <button class="btn btn-light" id="dashboard">Dashboard</button>
       <button class="btn btn-light" id="logout">Logout</button>
     </nav>
     {{/if}}
+    
+    <h1 class="m-0">
+      HVAC Inventory
+    </h1>
+   
   </header>
-
+  <main class="container mt-5">
+    {{{ body }}}
+  </main>
+  
   <footer class="bg-dark text-light text-center py-3">
-    <h4>HVAC Inventory 2024</h4>
+    <p>HVAC Inventory 2024</p>
   </footer>
 
   {{#if logged_in}}

@@ -1,62 +1,108 @@
-const router = require('express').Router();
-const { User, Item, Inventory } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { User, Item, Inventory, Invoice, Inventory_item } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get('/', withAuth, async (req, res) => {
+// Landing Page Route
+router.get("/", async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/homepage");
+  } else {
+    // If user is not logged in, render the landing page
+    res.render("landingpage");
+  }
+});
+
+// Homepage Route
+router.get("/homepage", withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id,{
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      order: [["name", "ASC"]],
       include: [
         {
           model: Inventory,
-        }
+        },
       ],
-    
     });
-
-    const user = userData.get({plain:true})
-    
-    res.render('homepage', {
+    const user = userData.get({ plain: true });
+    res.render("homepage", {
       user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/login', async (req, res) => {
+// Login Route
+router.get("/login", async (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect("/homepage");
     return;
   }
-
-  res.render('login');
+  res.render("login");
 });
 
-router.get('/inventory', async (req, res) => {
+// Inventory Route
+// Route to get all inventory items
+router.get("/inventory", withAuth, async (req, res) => {
+  try {
+    const inventoryData = await Inventory.findAll({
+      where: { user_id: req.session.user_id },
+      include: [
+        {
+          model: Item,
+          through: Inventory_item,
+          as: "items",
+        },
+      ],
+    });
+    const allItemData = await Item.findAll({
+      include: [
+        {
+          model: Inventory, 
+          through: Inventory_item,
+          as: 'inventories'
+        }
+      ]
+    })
+
+    const tmpAllItemData = allItemData.map((item) => item.get());
+    const tmpInventoryData = inventoryData.map((item) => item.get());
+    const items = tmpInventoryData.map((inventory) =>
+      inventory.items.map((itm) => itm.get())
+    );
+    const logged_in = req.session.logged_in;
+    tmpAllItemData.forEach((data) => {
+      data.inventories = data.inventories.map((item) => item.get())
+    });
+    
+    res.render("inventory", { userItems: items[0], logged_in, allItems: tmpAllItemData, inventory_id: tmpInventoryData[0].id });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Invoice Route
+router.get('/invoice', withAuth, async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect('/login');
     return;
-} 
-
-try {
-  const itemData = await Item.findAll()
-  const items = itemData.map(item => item.get())
-  console.log(items)
-  res.render('inventory', {items});
-} catch (err) {
-  res.json(error)
-}
+  }
+  try {
+    const invoiceData = await Invoice.findAll();
+    const invoices = invoiceData.map(item => item.get());
+    console.log(invoices);
+      res.render('invoice', { invoices });
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
 });
 
-router.get('/item',withAuth, async (req,res) =>{
-  res.render('inventory');
-});
+// Other Routes
+// Add other routes as needed
 
-router.get('/invoice', withAuth, async (req,res) => {
-  res.render('invoice');
-})
 module.exports = router;
