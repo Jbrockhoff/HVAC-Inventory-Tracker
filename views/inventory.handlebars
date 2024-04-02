@@ -1,10 +1,3 @@
-{{!-- {{#if logged_in}}
-    <nav>
-      <button class="btn btn-light" id="dashboard">Dashboard</button>
-      <button class="btn btn-light" id="logout">Logout</button>
-    </nav>
-    {{/if}} --}}
-
 {{#if userItems}}
   <h2>Your Inventory:</h2>
 
@@ -22,6 +15,8 @@
   <p>No items in your inventory yet.</p>
 {{/if}}
 
+<hr />
+<div id="all-items-container">
 {{#each allItems as |item| }}
  <div class="row align-center mb-5">
       <div class="col-md-6">
@@ -29,6 +24,9 @@
         <p>Quantity: {{item.quantity}}</p>
         <p>Cost: ${{item.cost}}</p>
         <p>Retail: ${{item.retail}}</p> 
+        <button data-inventory="{{@root.inventory_id}}" data-item="{{item.id}}">Add to Inventory</button>
       </div>
     </div>
     {{/each}}
+    </div>
+    <script src="/js/inventory.js"></script>
