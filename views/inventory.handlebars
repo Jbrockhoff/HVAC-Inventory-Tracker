@@ -5,14 +5,15 @@
   <hr/>
   <div class="row justify-content-center">
     {{#each userItems as |item| }}
-    <div class="col-md-4 mb-5">
+    <div class="col-md-4 mb-5 my-card">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{item.name}}</h5>
           <p class="card-text">Quantity: {{item.quantity}}</p>
           <p class="card-text">Cost: ${{item.cost}}</p>
           <p class="card-text">Retail: ${{item.retail}}</p>
-          <button class="btn btn-danger delete-button" data-inventory="{{@root.inventory_id}}" data-item="{{item.id}}">Delete from Inventory</button>
+          <button class="btn btn-warning update-button" data-item-id="{{item.id}}">Update Item</button>
+          <button class="btn btn-danger delete-button" data-item-id="{{item.id}}">Delete Item</button>
         </div>
       </div>
     </div>
@@ -27,7 +28,7 @@
   <hr/>
   <div id="all-items-container" class="row justify-content-center">
     {{#each allItems as |item| }}
-    <div class="col-md-4 mb-5">
+    <div class="col-md-4 mb-5 my-card">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{item.name}}</h5>
