@@ -44,7 +44,7 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-// Route to get all inventory items
+// Route to Inventory 
 router.get("/inventory", withAuth, async (req, res) => {
   try {
     const inventoryData = await Inventory.findAll({
@@ -76,7 +76,7 @@ router.get("/inventory", withAuth, async (req, res) => {
       data.inventories = data.inventories.map((item) => item.get())
     });
     
-    res.render("inventory", { userItems: items[0], allItems: tmpAllItemData, inventory_id: tmpInventoryData?.[0]?.id });
+    res.render("inventory", { userItems: items[0], logged_in: req.session.logged_in, allItems: tmpAllItemData, inventory_id: tmpInventoryData?.[0]?.id });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -93,7 +93,10 @@ router.get('/invoice', withAuth, async (req, res) => {
     const invoiceData = await Invoice.findAll();
     const invoices = invoiceData.map(item => item.get());
     console.log(invoices);
-      res.render('invoice', { invoices });
+      res.render('invoice', { 
+        invoices,
+        logged_in: req.session.logged_in,
+       });
   } catch (err) {
       console.log(err);
       res.status(500).json(err);
