@@ -44,7 +44,6 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-// Inventory Route
 // Route to get all inventory items
 router.get("/inventory", withAuth, async (req, res) => {
   try {
@@ -100,8 +99,5 @@ router.get('/invoice', withAuth, async (req, res) => {
       res.status(500).json(err);
   }
 });
-
-// Other Routes
-// Add other routes as needed
 
 module.exports = router;

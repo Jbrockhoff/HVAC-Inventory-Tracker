@@ -1,3 +1,5 @@
+//Function to add item to inventory
+
 document.getElementById("all-items-container").addEventListener("click",async function(e){
     if (e.target.matches("button")){
         try{
@@ -10,7 +12,7 @@ document.getElementById("all-items-container").addEventListener("click",async fu
               document.location.reload()
         }catch(error){
             alert(error)
-        }
-    }
-})
+        };
+    };
+});
 

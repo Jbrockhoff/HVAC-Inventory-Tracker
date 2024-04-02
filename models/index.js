@@ -3,6 +3,7 @@ const Item = require("./Item");
 const Inventory = require("./Inventory");
 const Invoice = require("./Invoice");
 const Inventory_item = require("./inventory_item");
+
 User.hasOne(Inventory, {
   foreignKey: "user_id",
 });

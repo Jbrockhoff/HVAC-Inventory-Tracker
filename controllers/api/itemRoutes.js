@@ -1,8 +1,8 @@
-// need to link to item js 
 const router = require('express').Router();
 const { Item } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//Create new item
 router.post('/', withAuth, async (req, res) => {
   try {
     const newItem = await Item.create({
@@ -16,6 +16,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//Deletes existing item
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const itemData = await Item.destroy({
