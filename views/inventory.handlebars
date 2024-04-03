@@ -3,7 +3,7 @@
   <hr/>
   <h2>Your Inventory:</h2>
   <hr/>
-  <div class="row justify-content-center">
+  <div id="update-items-container" class="row justify-content-center">
     {{#each userItems as |item| }}
     <div class="col-md-4 mb-5 my-card">
       <div class="card">
@@ -26,7 +26,7 @@
   <hr/>
   <h2>Choose an Inventory Item to Add:</h2>
   <hr/>
-  <div id="all-items-container" class="row justify-content-center">
+  <div id="add-items-container" class="row justify-content-center">
     {{#each allItems as |item| }}
     <div class="col-md-4 mb-5 my-card">
       <div class="card">
