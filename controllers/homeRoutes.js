@@ -47,6 +47,7 @@ router.get("/login", async (req, res) => {
 // Route to Inventory 
 router.get("/inventory", withAuth, async (req, res) => {
   try {
+    console.log(req.session.user_id)
     const inventoryData = await Inventory.findAll({
       where: { user_id: req.session.user_id },
       include: [
@@ -73,10 +74,12 @@ router.get("/inventory", withAuth, async (req, res) => {
       inventory.items.map((itm) => itm.get())
     );
     tmpAllItemData.forEach((data) => {
-      data.inventories = data.inventories.map((item) => item.get())
+      data.inventories = data.inventories.map((item) => item.get()),
+      data.inventory_id = tmpInventoryData[0].id
     });
-    
-    res.render("inventory", { userItems: items[0], logged_in: req.session.logged_in, allItems: tmpAllItemData, inventory_id: tmpInventoryData?.[0]?.id });
+    console.log(tmpInventoryData)
+    console.log(tmpInventoryData[0].id)
+    res.render("inventory", { userItems: items[0], logged_in: req.session.logged_in, allItems: tmpAllItemData, inventory_id: tmpInventoryData[0].id });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
