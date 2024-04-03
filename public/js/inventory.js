@@ -1,7 +1,7 @@
 // Function to add item to inventory
 
 
-document.getElementById("all-items-container").addEventListener("click", async function(e) {
+document.getElementById("add-items-container").addEventListener("click", async function(e) {
     e.preventDefault()
     if (e.target.matches(".add-button")){
         try{
@@ -17,9 +17,18 @@ document.getElementById("all-items-container").addEventListener("click", async f
         };
     };
 
+});
+
+// Function to add item to inventory
+
+
+document.getElementById("update-items-container").addEventListener("click", async function(e) {
+    e.preventDefault()
+   
     if (e.target.matches(".delete-button")) {
+        
         try {
-            await fetch(`/api/inventory/delete/${e.target.dataset.inventory}`, {
+            await fetch(`/api/item/${e.target.dataset.itemId}`, {
                 method: "DELETE"
             });
             document.location.reload();
@@ -35,7 +44,7 @@ document.getElementById("all-items-container").addEventListener("click", async f
                 await fetch(`/api/inventory/update/${e.target.dataset.inventory}`, {
                     method: "PUT",
                     body: JSON.stringify({ updatedItem }),
-                    headers: { "Content-Type": "application/json" }
+            
                 });
                 document.location.reload();
             } catch (error) {
@@ -44,3 +53,4 @@ document.getElementById("all-items-container").addEventListener("click", async f
         }
     }
 });
+
