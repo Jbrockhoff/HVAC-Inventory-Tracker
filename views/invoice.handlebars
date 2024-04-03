@@ -1,22 +1,23 @@
 <h2>Create New Invoice</h2>
-    
+    <form id="newInvoiceForm" class="row g-3" action="/api/invoice" method="POST">
+<div id="invoice-container" class="row justify-content-center">
 <form class="row g-3">
   <div class="col-md-6">
-    <label for="inputFirst4" class="form-label">First Name</label>
-    <input type="text" class="form-control" id="inputFirst4">
+    <label for="inputFirst" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="inputFirst">
   </div>
   <div class="col-md-6">
-    <label for="inputLast4" class="form-label">Last Name</label>
-    <input type="text" class="form-control" id="inputLast4">
+    <label for="inputLast" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="inputLast">
   </div>
 <form class="row g-3">
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Email</label>
-    <input type="text" class="form-control" id="inputEmail4">
+    <label for="inputEmail" class="form-label">Email</label>
+    <input type="text" class="form-control" id="inputEmail">
   </div>
   <div class="col-md-6">
-    <label for="inputPhone4" class="form-label">Phone Number</label>
-    <input type="text" class="form-control" id="inputPhone4">
+    <label for="inputPhone" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" id="inputPhone">
   </div>
   <div class="col-12">
     <label for="inputAddress" class="form-label">Address</label>
@@ -41,7 +42,7 @@
   
 <div class="col-md-6">
     <label for="inputDescription" class="form-label">Description</label>
-    <input type="text" class="form-control" id="inputDecription">
+    <input type="text" class="form-control" id="inputDescription">
 </div>
 <div class="col-md-4">
     <label for="inputItem" class="form-label">Items Used</label>
@@ -57,4 +58,8 @@
 
     <button type="submit" class="btn btn-primary">Create Invoice</button>
   </div> 
+  </div>
 </form>
+
+
+ <script src="/js/invoice.js"></script>

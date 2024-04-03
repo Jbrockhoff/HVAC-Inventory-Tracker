@@ -1,7 +1,9 @@
-//Function to add item to inventory
+// Function to add item to inventory
 
-document.getElementById("all-items-container").addEventListener("click",async function(e){
-    if (e.target.matches("button")){
+
+document.getElementById("all-items-container").addEventListener("click", async function(e) {
+    e.preventDefault()
+    if (e.target.matches(".add-button")){
         try{
             console.log(e.target.dataset)
             await fetch("/api/inventory/add",{
@@ -14,8 +16,7 @@ document.getElementById("all-items-container").addEventListener("click",async fu
             alert(error)
         };
     };
-});
-document.getElementById("all-items-container").addEventListener("click", async function(e) {
+
     if (e.target.matches(".delete-button")) {
         try {
             await fetch(`/api/inventory/delete/${e.target.dataset.inventory}`, {
