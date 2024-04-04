@@ -2,7 +2,6 @@ const router = require('express').Router();
 const {  Inventory_item } = require('../../models');
 
 router.post('/add', async (req, res) => {
-    console.log(req.body)
     try {
         const newInventoryItem = await Inventory_item.create({
             inventory_id: parseInt(req.body.inventory_id),

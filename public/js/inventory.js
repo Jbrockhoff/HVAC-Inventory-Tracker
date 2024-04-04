@@ -33,6 +33,7 @@ document.getElementById("update-items-container").addEventListener("click", asyn
         };
     };
 
+    
     if (e.target.matches(".update-button")) {
         const updatedItem = prompt("Enter the updated item:");
         if (updatedItem) {

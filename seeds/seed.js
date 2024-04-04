@@ -1,5 +1,5 @@
 const sequelize = require("../config/connection");
-const { User, Item, Inventory, Inventory_item } = require("../models");
+const { User, Item, Inventory } = require("../models");
 
 const userData = require("./userData.json");
 const itemData = require("./itemData.json");
@@ -23,12 +23,7 @@ const seedDatabase = async () => {
       ...item,
     });
     tmpItems.push(newItem);
-  }
-
-  // Inventory_item.create({
-  //   inventory_id: 1,
-  //   item_id: 2,
-  // });
+  };
 
   process.exit(0);
 };

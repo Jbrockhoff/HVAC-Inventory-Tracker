@@ -1,6 +1,3 @@
-  
-    // const name = document.querySelector('#invoice-container').value.trim();
-    
     // To create new invoice
 
     const newFormHandler = async (event) => {
@@ -18,7 +15,7 @@
       const description = document.querySelector('#inputDescription').value.trim();
       const item = document.querySelector('#inputItem').value.trim();
       const cost = document.querySelector('#inputCost').value.trim();
-      // Add other fields as needed
+      
       if (first_name && last_name && email && phone && address && city && state && zip && description && item && cost) {
         const response = await fetch(`/api/invoice`, {
           method: 'POST',
@@ -28,10 +25,7 @@
           },
         });
    
-  
         if (response.ok) {
-          
-          
           document.location.assign('/invoice');
         } else {
           alert('Failed to create invoice');

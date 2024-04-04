@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/homepage");
   } else {
-    // If user is not logged in, render the landing page
+// If user is not logged in, render the landing page
     res.render("landingpage");
   }
 });
@@ -65,12 +65,13 @@ router.get("/inventory", withAuth, async (req, res) => {
           model: Inventory, 
           through: Inventory_item,
           as: 'inventories'
-        }
-      ]
-    })
+        },
+      ],
+    });
 
-    const tmpAllItemData = allItemData.map((item) => item.get());
-    const tmpInventoryData = inventoryData.map((item) => item.get());
+    
+    const tmpAllItemData = _.map(allItemData, (item) => item.get());
+    const tmpInventoryData = _.map(inventoryData, (item) => item.get());
     const items = tmpInventoryData.map((inventory) =>
       inventory.items.map((itm) => itm.get())
     );
@@ -78,8 +79,7 @@ router.get("/inventory", withAuth, async (req, res) => {
       data.inventories = data.inventories.map((item) => item.get()),
       data.inventory_id = tmpInventoryData[0].id
     });
-    console.log(tmpInventoryData)
-    console.log(tmpInventoryData[0].id)
+
     res.render("inventory", { userItems: items[0], logged_in: req.session.logged_in, allItems: tmpAllItemData, inventory_id: tmpInventoryData[0].id });
   } catch (err) {
     console.log(err);
@@ -87,7 +87,7 @@ router.get("/inventory", withAuth, async (req, res) => {
   }
 });
 
-// Invoice Route
+// Route to invoice, utilization of lodash
 router.get('/invoice', withAuth, async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect('/login');
@@ -95,9 +95,7 @@ router.get('/invoice', withAuth, async (req, res) => {
   }
   try {
     const invoiceData = await Invoice.findAll();
-    // const invoices = invoiceData.map(item => item.get());
     const invoices = _.map(invoiceData, (item) => item.get())
-    console.log(invoices);
       res.render('invoice', { 
         invoices,
         logged_in: req.session.logged_in,
