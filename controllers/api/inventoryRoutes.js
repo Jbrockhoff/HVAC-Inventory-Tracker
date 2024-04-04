@@ -1,21 +1,5 @@
 const router = require('express').Router();
-const { Inventory, Item, Inventory_item } = require('../../models');
-const withAuth = require('../../utils/auth');
-
-
-// Route to create new inventory
-router.post('/', withAuth, async (req, res) => {
-    try {
-        const newInventory = await Inventory.create({
-            ...req.body,
-            user_id: req.session.user_id,
-        });
-
-        res.status(200).json(newInventory);
-    } catch (err) {
-        res.status(400).json(err);
-    }
-});
+const {  Inventory_item } = require('../../models');
 
 router.post('/add', async (req, res) => {
     console.log(req.body)
