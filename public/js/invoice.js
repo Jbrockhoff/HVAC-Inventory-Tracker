@@ -2,6 +2,7 @@
     // const name = document.querySelector('#invoice-container').value.trim();
     
     // To create new invoice
+
     const newFormHandler = async (event) => {
       event.preventDefault();
       
@@ -18,8 +19,7 @@
       const item = document.querySelector('#inputItem').value.trim();
       const cost = document.querySelector('#inputCost').value.trim();
       // Add other fields as needed
-    
-      if (firstName && lastName && email && email && phone && address && addressTwo && city && state && zip && description && item && cost) {
+      if (firstName && lastName && email && phone && address && city && state && zip && description && item && cost) {
         const response = await fetch(`/api/invoice`, {
           method: 'POST',
           body: JSON.stringify({ firstName, lastName, email, phone, address, addressTwo, city, state, zip, description, item, cost }),
@@ -27,64 +27,20 @@
             'Content-Type': 'application/json',
           },
         });
-    
-        const responseData = await response.json(); // Convert response to JSON
-    
-        console.log(responseData); // Log the response data
+   
     
         if (response.ok) {
-          document.location.replace('/invoice');
+          
+          
+          document.location.assign('/invoice');
         } else {
           alert('Failed to create invoice');
         }
       }
     };
-  
-  //To delete existing invoice by ID
-  const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('invoice-id')) {
-      const id = event.target.getAttribute('invoice-id');
-  
-      const response = await fetch(`/api/invoice/${id}`, {
-        method: 'DELETE',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/invoice');
-      } else {
-        alert('Failed to delete invoice');
-      }
-    }
-  };
-  const updateFormHandler = async (event) => {
-    event.preventDefault();
-  
-    const id = document.querySelector('#invoice-id').value;
-    const updatedContent = document.querySelector('#updated-content').value.trim();
-  
-    if (id && updatedContent) {
-      const response = await fetch(`/api/invoice/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({ content: updatedContent }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/invoice');
-      } else {
-        alert('Failed to update invoice');
-      }
-    }
-  };
-  
  
-  
-  
-  document.querySelector('#newInvoiceForm').addEventListener('submit', newFormHandler);
-  document.querySelector('.invoice-list').addEventListener('submit', delButtonHandler);
-  document.querySelector('.update-invoice-form').addEventListener('submit', updateFormHandler)
-  
+    document.querySelector('#newInvoiceForm').addEventListener('submit', newFormHandler);
+
+
 
   

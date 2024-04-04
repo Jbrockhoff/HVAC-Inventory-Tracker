@@ -17,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
 
 //Create new invoice
 router.post('/', withAuth, async (req, res) => {
-  console.log(req.body)
+
     try {
       const newInvoice = await Invoice.create({
         ...req.body,
