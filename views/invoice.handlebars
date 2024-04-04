@@ -73,12 +73,15 @@
 <hr/>
 <h2>Your Invoices:</h2>
 <hr/>
-<div class="row">
+<div id='invoice_container' class="row">
   {{#each invoices as |invoice| }} 
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">{{invoice.first_name}} {{invoice.last_name}}</h5>
         <p class="card-text"> {{invoice.description}}, {{invoice.cost}} </p>
+        <div class="card-footer">
+          <button class="btn btn-danger" data-id="{{invoice.id}}">Delete Invoice</button>
+        </div>
       </div>
     </div>
   {{/each}}

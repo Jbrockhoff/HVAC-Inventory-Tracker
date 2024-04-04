@@ -30,7 +30,7 @@ router.post('/', withAuth, async (req, res) => {
   });
   
   //DELETE route to delete an invoice by ID
-  router.delete('/:id', withAuth, async (req, res) => {
+  router.delete('/delete/:id', withAuth, async (req, res) => {
     try {
       const invoiceData = await Invoice.destroy({
         where: {

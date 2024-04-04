@@ -6,7 +6,6 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const cloudinary = require('cloudinary').v2
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: 'Super secret secret',//env
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -34,14 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-cloudinary.config({
-  cloud_name: 'dvwe2novp',
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret_key: process.env.CLOUDINARY_API_SECRET_KEY,
-  secure: true,
-});
-
-cloudinary.uploader.upload
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
