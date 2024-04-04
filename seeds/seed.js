@@ -25,10 +25,10 @@ const seedDatabase = async () => {
     tmpItems.push(newItem);
   }
 
-  Inventory_item.create({
-    inventory_id: 1,
-    item_id: 2,
-  });
+  // Inventory_item.create({
+  //   inventory_id: 1,
+  //   item_id: 2,
+  // });
 
   process.exit(0);
 };

@@ -1,6 +1,4 @@
-// Function to add item to inventory
-
-
+// Add item to inventory
 document.getElementById("add-items-container").addEventListener("click", async function(e) {
     e.preventDefault()
     if (e.target.matches(".add-button")){
@@ -19,23 +17,21 @@ document.getElementById("add-items-container").addEventListener("click", async f
 
 });
 
-// Function to add item to inventory
-
-
+//Delete item from inventory
 document.getElementById("update-items-container").addEventListener("click", async function(e) {
     e.preventDefault()
    
     if (e.target.matches(".delete-button")) {
         
         try {
-            await fetch(`/api/item/${e.target.dataset.itemId}`, {
+            await fetch(`/api/inventory/delete/${e.target.dataset.itemId}`, {
                 method: "DELETE"
             });
             document.location.reload();
         } catch (error) {
             alert(error);
-        }
-    }
+        };
+    };
 
     if (e.target.matches(".update-button")) {
         const updatedItem = prompt("Enter the updated item:");

@@ -16,4 +16,17 @@ router.post('/add', async (req, res) => {
     }
 });
 
+router.delete('/delete/:id', async (req,res) => {
+    try {
+        await Inventory_item.destroy({
+            where: {
+                item_id: req.params.id
+            }
+        })
+        res.json(200)
+    } catch (err) {
+        res.json(500)
+    }
+})
+
 module.exports = router;

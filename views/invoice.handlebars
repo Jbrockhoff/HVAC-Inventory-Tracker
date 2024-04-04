@@ -71,5 +71,15 @@
     </div>
   </div>
 </form>
+<hr/>
+<h2>Your Invoices:</h2>
+<hr/>
+<div>
+  {{#each invoices as |invoice| }} 
+    <div>
+      <p>{{invoice.first_name}}</p>
+    </div>
+  {{/each}}
+</div>
 
 <script src="/js/invoice.js"></script>

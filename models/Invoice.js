@@ -20,44 +20,54 @@ Invoice.init(
                 key: "id"
             }
         },
-        // first_name: {
-        //   type: DataTypes.STRING
-        //   allowNull: false,
-        // },
-        // last_name: {
-        //   type: DataTypes.STRING,
-        //   allowNull: false,
-        // },
-        // email: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
-        // phone_number: {
-        //   type: DataTypes.STRING,
-        //   allowNull: false,
-        // },
-        // address: {
-        //   type: DataTypes.STRING,
-        //   allowNull: false,
-        // },
-        // address_two: {
-        //   type: DataTypes.STRING,
-        //   allowNull: false,
-        // },
-        // city: {
-        //   type: DataTypes.STRING,
-        //   allowNull: false,
-        // },
-        // state: {
-        //   type: DataTypes.STRING,
-        //   allowNull: false,
-        // },
-        // zip: {
-        //   type: DataTypes.STRING,
-        //   allowNull: false,
-        // },
-        
-        
+        first_name: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        last_name: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        phone: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        address: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        address_two: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        city: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        state: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        zip: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        description: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        item: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        cost: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
     },
     {
         sequelize,

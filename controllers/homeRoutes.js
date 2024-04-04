@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, Item, Inventory, Invoice, Inventory_item } = require("../models");
 const withAuth = require("../utils/auth");
+const  _ = require('lodash');
 
 // Landing Page Route
 router.get("/", async (req, res) => {
@@ -94,7 +95,8 @@ router.get('/invoice', withAuth, async (req, res) => {
   }
   try {
     const invoiceData = await Invoice.findAll();
-    const invoices = invoiceData.map(item => item.get());
+    // const invoices = invoiceData.map(item => item.get());
+    const invoices = _.map(invoiceData, (item) => item.get())
     console.log(invoices);
       res.render('invoice', { 
         invoices,

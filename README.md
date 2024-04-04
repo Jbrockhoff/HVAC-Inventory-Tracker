@@ -12,9 +12,10 @@ This application allows a user to track their personal HVAC inventory including 
 6. [Questions?](#questions)
 
 ## Installation
-Node packages, Cloudinary, MySQL:
+Express, Cloudinary, MySQL:
 
-    npm install
+    npm init -y
+    npm i express
 
     npm install cloudinary
 
@@ -24,7 +25,10 @@ Here is the link to the GitHub Repository for this application:
 
 https://github.com/Jbrockhoff/HVAC-Inventory-Tracker
 
+
 Here is the link to the deployed Heroku application:
+
+https://git.heroku.com/chilltrack.git
 
 ## License
 ISC
