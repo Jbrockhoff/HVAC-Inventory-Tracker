@@ -12,19 +12,24 @@ This application allows a user to track their personal HVAC inventory including 
 6. [Questions?](#questions)
 
 ## Installation
-Node packages, Cloudinary, MySQL:
+Express, MySQL, lodash:
 
-    npm install
-
-    npm install cloudinary
+    npm init -y
+    npm i express
 
     msql -u root -p
+
+    npm install lodash
+
 ## Usage
 Here is the link to the GitHub Repository for this application: 
 
 https://github.com/Jbrockhoff/HVAC-Inventory-Tracker
 
+
 Here is the link to the deployed Heroku application:
+
+https://git.heroku.com/chilltrack.git
 
 ## License
 ISC
@@ -38,7 +43,7 @@ THE SOFTWARE IS PROVIDED “AS IS” AND THE AUTHOR DISCLAIMS ALL WARRANTIES WIT
 Created by Eric Snider and Jennie Brockhoff, with tutoring assitance from Chris Baird
 
 ## Libraries and Tests
-npm package Cloudinary used to upload and styling to inventory photos
+npm package lodash used as a helper for .map functions
 
 ## Questions?
 Contact the contributors:

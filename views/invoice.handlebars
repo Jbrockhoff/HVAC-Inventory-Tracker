@@ -66,10 +66,22 @@
 
       <hr />
 
-      <button type="submit" class="btn btn-primary create-invoice">Create
-        Invoice</button>
+      <button type="submit" class="btn btn-primary create-invoice">Create Invoice</button>
     </div>
   </div>
 </form>
+<hr/>
+<h2>Your Invoices:</h2>
+<hr/>
+<div class="row">
+  {{#each invoices as |invoice| }} 
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{invoice.first_name}} {{invoice.last_name}}</h5>
+        <p class="card-text"> {{invoice.description}}, {{invoice.cost}} </p>
+      </div>
+    </div>
+  {{/each}}
+</div>
 
 <script src="/js/invoice.js"></script>
