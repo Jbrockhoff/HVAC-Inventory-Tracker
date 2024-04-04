@@ -34,6 +34,20 @@
     };
  
     document.querySelector('#newInvoiceForm').addEventListener('submit', newFormHandler);
+    document.getElementById('invoice_container').addEventListener('click', async function(e) {
+      if (e.target.matches('button')) {
+        const result = await fetch(`/api/invoice/delete/${e.target.dataset.id}`, {
+          method: 'DELETE',
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        console.log(result)
+        if (result.ok) {
+          document.location.reload()
+        }
+      }
+    })
 
 
 
