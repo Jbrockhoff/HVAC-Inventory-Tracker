@@ -12,8 +12,13 @@ This application allows a user to track their personal HVAC inventory including 
 6. [Questions?](#questions)
 
 ## Installation
-npm install, mySQL, cloudinary, etc
+Node packages, Cloudinary, MySQL:
 
+    npm install
+
+    npm install cloudinary
+
+    msql -u root -p
 ## Usage
 Here is the link to the GitHub Repository for this application: 
 
