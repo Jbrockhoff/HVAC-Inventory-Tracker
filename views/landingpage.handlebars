@@ -1,13 +1,25 @@
-  <main class="container mt-5">
-    <h2>ChillTrack: The Cool Inventory Manager</h2>
-    <p> Your one-stop shop for your HVAC material tracking needs!</p>
-    <div>
-    <img src= "/assets/minisplit.jpg" class="card-img-top item-image mb-3" style="height: 300px; width: 200px;" alt="minisplit">
+<main class="container mt-5">
+  <div class="landingpage-container">
+    <h2 class="text-light">ChillTrack: The Cool Inventory Manager</h2>
+    <p class="text-light">
+      Your one-stop shop for your HVAC material tracking needs!</p>
+    <div
+      class="image-div"
+      style="height: 400px; width: 600px; border-radius: 20px;"
+    >
+      <img
+        src="/assets/minisplit.jpg"
+        class=""
+        style="height: 400px; width: 600px; border-radius: 20px;"
+        alt="minisplit"
+      />
+      <a href="/login" class="btn btn-light get-started-button" id="start">Click
+        Here to Get Started!</a>
     </div>
-    <a href="/login" class="btn btn-light" id="start">Click Here to Get Started!</a>
-  
-  </main>
 
-  {{#if logged_in}}
+  </div>
+</main>
+
+{{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{/if}}
+{{/if}}

@@ -1,45 +1,54 @@
-<div class="text-center">
-  {{#if userItems}}
-  <hr/>
-  <h2>Your Inventory:</h2>
-  <hr/>
-  <div id="update-items-container" class="row justify-content-center">
-    {{#each userItems as |item| }}
-    <div class="col-md-4 mb-5 my-card">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{item.name}}</h5>
-          <p class="card-text">Quantity: {{item.quantity}}</p>
-          <p class="card-text">Cost: ${{item.cost}}</p>
-          <p class="card-text">Retail: ${{item.retail}}</p>
-          <button class="btn btn-danger delete-button" data-item-id="{{item.id}}">Delete Item</button>
-        </div>
+<div class="inventory-container">
+  <div class="text-center">
+    {{#if userItems}}
+      <hr />
+      <h2 class="text-light">Your Inventory</h2>
+      <hr />
+      <div id="update-items-container" class="row justify-content-center">
+        {{#each userItems as |item|}}
+          <div class="col-md-4 mb-5 my-card">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{item.name}}</h5>
+                <p class="card-text">Quantity: {{item.quantity}}</p>
+                <p class="card-text">Cost: ${{item.cost}}</p>
+                <p class="card-text">Retail: ${{item.retail}}</p>
+                <button
+                  class="btn btn-danger delete-button"
+                  data-item-id="{{item.id}}"
+                >Delete Item</button>
+              </div>
+            </div>
+          </div>
+        {{/each}}
       </div>
-    </div>
-    {{/each}}
-  </div>
-  {{else}}
-  <p>No items in your inventory yet.</p>
-  {{/if}}
+    {{else}}
+      <p class="text-light mt-3">No items in your inventory yet.</p>
+    {{/if}}
 
-  <hr/>
-  <h2>Choose an Inventory Item to Add:</h2>
-  <hr/>
-  <div id="add-items-container" class="row justify-content-center">
-    {{#each allItems as |item| }}
-    <div class="col-md-4 mb-5 my-card">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{item.name}}</h5>
-          <p class="card-text">Quantity: {{item.quantity}}</p>
-          <p class="card-text">Cost: ${{item.cost}}</p>
-          <p class="card-text">Retail: ${{item.retail}}</p>
-          <button class="btn btn-primary add-button" data-inventory="{{item.inventory_id}}" data-item="{{item.id}}">Add to Inventory</button>
+    <hr class="text-light" />
+    <h2 class="text-light"> Choose an Inventory Item to Add:</h2>
+    <hr />
+    <div id="add-items-container" class="row justify-content-center">
+      {{#each allItems as |item|}}
+        <div class="col-md-4 mb-5 my-card">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">Quantity: {{item.quantity}}</p>
+              <p class="card-text">Cost: ${{item.cost}}</p>
+              <p class="card-text">Retail: ${{item.retail}}</p>
+              <button
+                class="btn btn-primary add-button"
+                data-inventory="{{item.inventory_id}}"
+                data-item="{{item.id}}"
+              >Add to Inventory</button>
+            </div>
+          </div>
         </div>
-      </div>
+      {{/each}}
     </div>
-    {{/each}}
   </div>
+
+  <script src="/js/inventory.js"></script>
 </div>
-
- <script src="/js/inventory.js"></script>

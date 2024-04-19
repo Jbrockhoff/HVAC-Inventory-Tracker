@@ -1,24 +1,36 @@
-<h2>Welcome, {{user.name}}!</h2>
-<p>What would you like to do?</p>
+<div class="homepage-container">
 
-<div class="card-container">
-  <div class="card" style="width: 18rem;">
-    <img src="/assets/tools.jpg" class="card-img-top item-image" alt="tools">
-    <div class="card-body">
-      <a href="inventory" class="btn btn-primary mb-3" id="inventory">
-        <h5 class="card-title">My Inventory</h5>
-      </a>
-      <p class="card-text">View and update your personal inventory</p>
+  <h2 class="text-light">Welcome, {{user.name}}!</h2>
+  <p class="text-light">What would you like to do?</p>
+
+  <div class="card-container">
+    <div class="card" style="width: 18rem;">
+      <img
+        src="/assets/tools.jpg"
+        class="card-img-top item-image"
+        alt="tools"
+      />
+      <div class="card-body">
+        <a href="inventory" class="btn btn-primary mb-3" id="inventory">
+          <h5 class="card-title">My Inventory</h5>
+        </a>
+        <p class="card-text">View and update your personal inventory</p>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img
+        src="/assets/invoice.jpg"
+        class="card-img-top item-image"
+        alt="invoice"
+      />
+      <div class="card-body">
+        <a href="invoice" class="btn btn-primary mb-3" id="invoice">
+          <h5 class="card-title">My Invoices</h5>
+        </a>
+        <p class="card-text">Create a new invoice or view existing invoices</p>
+      </div>
     </div>
   </div>
 
-  <div class="card" style="width: 18rem;">
-    <img src="/assets/invoice.jpg" class="card-img-top item-image" alt="invoice">
-    <div class="card-body">
-      <a href="invoice" class="btn btn-primary mb-3" id="invoice">
-        <h5 class="card-title">Invoices</h5>
-      </a>
-      <p class="card-text">Create a new invoice or view existing invoices</p>
-    </div>
-  </div>
 </div>

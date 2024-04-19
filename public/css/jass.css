@@ -1091,7 +1091,7 @@ a:hover {
 }
 
 .card {
-  border: 1px solid #1a1a1a;
+  /* border: 1px solid #1a1a1a; */
   margin-right: 10px;
 }
 
@@ -1127,6 +1127,8 @@ a:hover {
   height: 200px; /* Set the desired height for the images */
   width: 100%; /* Ensure the image fills the width of the card */
   object-fit: cover; /* Maintain aspect ratio and cover the space */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 form {
