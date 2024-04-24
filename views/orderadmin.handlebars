@@ -1,0 +1,89 @@
+<div class="" style="width:100%">
+
+  <div
+    class="d-flex flex-column align-items-center mb-2 mt-2"
+    style="width:100%;margin-top: 10px;"
+  >
+    <h2 class="text-light">All Invoices</h2>
+    {{#each invoices as |invoice|}}
+
+      <div class="card" style="width: 100%;margin-top: 10px;">
+
+        <div class="d-flex flex-column justify-content-center" style="">
+
+          <div class="d-flex flex-column flex-grow-1">
+
+            <div class="d-flex" style="padding-left: 20px;padding-top: 20px;">
+              <h5 class="card-title">Name :
+                {{invoice.first_name}}
+                {{invoice.last_name}}</h5>
+            </div>
+
+            <div class="d-flex col-12 flex-grow-1">
+
+              <div class="col-12 col-md-6 d-flex flex-column align-items-start">
+
+                <p class="card-text">
+                  Order Description:
+                  {{invoice.description}}
+                </p>
+                <p class="card-text">
+                  Order Cost: ${{invoice.cost}}
+                </p>
+                <p class="card-text">
+                  Phone:
+                  {{invoice.phone}}
+                </p>
+                <p class="card-text">
+                  Address:
+                  {{invoice.address}}
+                </p>
+
+              </div>
+              <div class="col-12 col-md-6 d-flex flex-column align-items-start">
+                <p class="card-text">
+                  City:
+                  {{invoice.city}}
+                </p>
+                <p class="card-text">
+                  State:
+                  {{invoice.state}}
+                </p>
+                <p class="card-text">
+                  Description:
+                  {{invoice.description}}
+                </p>
+                <p class="card-text">
+                  Zip:
+                  {{invoice.zip}}
+                </p>
+              </div>
+            </div>
+
+           <div class="d-flex" style="padding-left: 20px;">
+            <h5 class="card-title">Order Status : </h5>
+           <select id="order-status" onchange="change_status('{{invoice.id}}', event)" class="order-status-select">
+                <option value="placed" {{#ifEquals invoice.status 'placed'}}selected{{/ifEquals}}>Placed</option>
+                <option value="shipped" {{#ifEquals invoice.status 'shipped'}}selected{{/ifEquals}}>Shipped</option>
+                <option value="delivered" {{#ifEquals invoice.status 'delivered'}}selected{{/ifEquals}}>Delivered</option>
+            </select>
+
+
+            </div>
+
+
+            <div class="d-flex justify-content-end p-2">
+              <button class="btn btn-danger" onclick="delete_order('{{invoice.id}}')">Delete
+                Invoice</button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+
+<script src="/js/invoice.js"></script>
