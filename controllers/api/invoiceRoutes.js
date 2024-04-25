@@ -1,53 +1,71 @@
-const router = require('express').Router();
-const { Invoice } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Invoice } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 //View all invoices from user
-router.get('/', withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
-      const invoicesData = await Invoice.findAll({
-          where: { user_id: req.session.user_id }
-      });
+    const invoicesData = await Invoice.findAll({
+      where: { user_id: req.session.user_id },
+    });
 
-      res.status(200).json(invoicesData);
+    res.status(200).json(invoicesData);
   } catch (err) {
-      res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
 //Create new invoice
-router.post('/', withAuth, async (req, res) => {
-    try {
-      const newInvoice = await Invoice.create({
-        ...req.body,
+router.post("/", withAuth, async (req, res) => {
+  try {
+    const newInvoice = await Invoice.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newInvoice);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+//DELETE route to delete an invoice by ID
+router.delete("/delete/:id", withAuth, async (req, res) => {
+  try {
+    const invoiceData = await Invoice.destroy({
+      where: {
+        id: req.params.id,
         user_id: req.session.user_id,
-      });
-  
-      res.status(200).json(newInvoice);
-    } catch (err) {
-      res.status(400).json(err);
+      },
+    });
+
+    if (!invoiceData) {
+      res.status(404).json({ message: "No invoice found with this id!" });
+      return;
     }
-  });
-  
-  //DELETE route to delete an invoice by ID
-  router.delete('/delete/:id', withAuth, async (req, res) => {
-    try {
-      const invoiceData = await Invoice.destroy({
-        where: {
-          id: req.params.id,
-          user_id: req.session.user_id,
-        },
-      });
-  
-      if (!invoiceData) {
-        res.status(404).json({ message: 'No invoice found with this id!' });
-        return;
-      }
-  
-      res.status(200).json(invoiceData);
-    } catch (err) {
-      res.status(500).json(err);
+
+    res.status(200).json(invoiceData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.put("/update_order_status/:id/:status", withAuth, async (req, res) => {
+  try {
+    const [numAffectedRows, invoiceData] = await Invoice.update(
+      { status: req.params.status },
+      { where: { id: req.params.id } }
+    );
+
+    if (numAffectedRows === 0) {
+      res.status(404).json({ message: "No invoice found with this id!" });
+      return;
     }
-  });
-  
-  module.exports = router;
+
+    res.status(200).json(invoiceData);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+module.exports = router;
