@@ -11,3 +11,13 @@
 .card{
     border-radius: 20px;
 }
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 18rem;
+    margin: 1rem;
+  }
