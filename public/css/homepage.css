@@ -1,12 +1,23 @@
 .homepage-container{
+    /* This container uses Flexbox for layout */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
+    flex: 1 0 auto; /* Shorthand for flex-grow, flex-shrink, flex-basis */
     width: 100%;
     height: 100%;
 }
 .card{
     border-radius: 20px;
 }
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 18rem;
+    margin: 1rem;
+  }
