@@ -1,52 +1,42 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HVAC Inventory Management System">
   <title>HVAC Inventory</title>
+  <link rel="icon" href="/path/to/favicon.ico">
   
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/login_css.css">
   <link rel="stylesheet" href="/css/homepage.css">
-   <link rel="stylesheet" href="/css/invoicecss.css">
+  <link rel="stylesheet" href="/css/invoicecss.css">
 </head>
  
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">ChillTrack</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  {{#if logged_in}}
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="homepage">Home</a>
-       <a class="nav-item nav-link active" href="/invoice">My invoices</a>
-      <a class="nav-item nav-link active" href="/admin">admin</a>
-      <a class="nav-item nav-link active" href="/" id="logout">Logout</a>
-    </div>
-  </div>
-   {{/if}}
-</nav>
+    <a class="navbar-brand" href="#">ChillTrack</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    {{#if logged_in}}
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="homepage">Home</a>
+          <a class="nav-item nav-link active" href="/invoice">My invoices</a>
+          <a class="nav-item nav-link active" href="/admin">admin</a>
+          <a class="nav-item nav-link active" href="/" id="logout">Logout</a>
+        </div>
+      </div>
+    {{/if}}
+  </nav>
   
   <main class="container mt-5 mb-5">
-    {{{ body }}}
-  </main>
   
-  <footer class="bg-dark text-light text-center py-3">
-    <p>The Cool Inventory Manager 2024</p>
-  </footer>
-
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-Ltrj3KmKF8kkSLOJ2HVP56v/j+2EFA6+O8iX1F0GLYsGmE9l/6XcaNN2Vn2HeHQ2" crossorigin="anonymous"></script>
+  <!-- Your scripts here -->
+  <script src="/path/to/your/script.js"></script>
 </body>
-
 </html>
